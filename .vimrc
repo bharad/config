@@ -19,6 +19,27 @@ set number
 " Leader is , and not the default \
 let mapleader = ","
 
+""""""
+" => VUNDLE
+""""""
+"set Runtime path to inc vundle and initialize
+set rtp+=~/.vim/bundle/vundle.vim
+"this is the call to begin the vundle plugin operation
+call vundle#begin()
+  Plugin 'gmarik/vundle.vim'
+  Plugin 'derekwyatt/vim-scala'
+  Plugin 'flazz/vim-colorschemes'
+  Plugin 'vim-ruby/vim-ruby'
+call vundle#end()
+
+" Autocomplete settings for ruby
+autocmd FileType ruby set omnifunc=rubycomplete#Complete
+let g:rubycomplete_buffer_loading = 1
+let g:rubycomplete_classes_in_global = 1
+let g:rubycomplete_rails = 1
+
+":autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
 " NERDTree settings (launch with \nt or \\)
 let g:NERDTreeQuitOnOpen = 1
 nmap <silent> <leader>nt <Esc>:NERDTreeToggle<CR>
@@ -34,6 +55,10 @@ nmap <silent> <leader>b <ESC>:BufExplorer<CR>
 " git grep
 nnoremap <silent> <Leader>a :!git-grep --color <cword><CR>
 
+" Format JSON document inside vim
+" nmap <silent> <Leader>j <ESC>:!python -m json.tool<CR>
+nmap <leader>j <ESC>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+
 """""""""""""""""""""""""""""""""""""""""""""
 " => Colors and Fonts
 """""""""""""""""""""""""""""""""""""""""""""
@@ -42,6 +67,8 @@ syntax on
 
 colorscheme vividchalk
 set background=dark
+set t_Co=256
+" colorscheme anotherdark
 
 set guifont=Monaco:h12
 
