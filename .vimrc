@@ -30,6 +30,8 @@ call vundle#begin()
   Plugin 'derekwyatt/vim-scala'
   Plugin 'flazz/vim-colorschemes'
   Plugin 'vim-ruby/vim-ruby'
+  Plugin 'scrooloose/nerdtree'
+  Plugin 'Xuyuanp/nerdtree-git-plugin'
 call vundle#end()
 
 " Autocomplete settings for ruby
